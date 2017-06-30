@@ -1,6 +1,8 @@
 # GW100
 GW100 data repository and post processing tools
 
+more information on the project at https://gw100.wordpress.com/
+
 
 structures
 ----------
