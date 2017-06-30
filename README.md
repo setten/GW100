@@ -11,8 +11,8 @@ data
 ----
 directory containing the contributed data sets
 
-data stored in json files with the fields://
-code //
+data stored in json files with the fields:
+code 
 code_version
 orbital (HOMO, HOMO-1, LUMO)
 calc_type (dft@functional, g0w0@functional, ...)
