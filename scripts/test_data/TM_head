@@ -1,0 +1,9 @@
+code=TURBOMOLE
+code_version=6.0
+orbital=HOMO
+calc_type=G0W0@PBE
+basis=gaussian
+basis_name=def2-QZVP
+basis_size=4
+remark=RI with jbas
+parameters={'eta': 0.001}
