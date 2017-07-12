@@ -109,6 +109,8 @@ function calc_diff(){
     };
     var data = [hist];
     var layout = {
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
         bargap: 0.05,
         yaxis: {title: "Count"},
         xaxis: {title: "Value"},
@@ -117,7 +119,7 @@ function calc_diff(){
         height: 200,
         margin: {
             l: 40,
-            r: 00,
+            r: 10,
             b: 35,
             t: 0,
             pad: 0
@@ -130,16 +132,18 @@ function calc_diff(){
         type: 'box',
     };
     var layout = {
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
         bargap: 0.05,
         autosize: false,
         width: 350,
         height: 100,
         margin: {
             l: 0,
-            r: 0,
+            r: 10,
             b: 20,
             t: 20,
-            pad: 0
+            pad: 0,
         },
     };
     var data = [box];
