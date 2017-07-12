@@ -1,6 +1,6 @@
 {
     "orbital": "HOMO", 
-    "remark": "no RI", 
+    "remark": "no RI solved qpe FF",
     "code": "TURBOMOLE", 
     "basis_size": "4", 
     "parameters": {
@@ -12,6 +12,8 @@
     "calc_type": "G0W0@PBE", 
     "DOI": "10.1021/acs.jctc.5b00453",
     "data": {
+        "593-60-2v2": "null",
+        "108-95-2v2": "null",
         "106-97-8": "null", 
         "558-13-4": "null", 
         "7722-84-1": -10.988, 

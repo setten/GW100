@@ -1,6 +1,6 @@
 {
     "orbital": "HOMO", 
-    "remark": "2 pole model", 
+    "remark": "2 pole solved",
     "code": "FHI-AIMS", 
     "basis_size": "4", 
     "parameters": {}, 
@@ -10,6 +10,8 @@
     "basis_name": "def2-QZVP", 
     "calc_type": "G0W0@PBE", 
     "data": {
+        "593-60-2v2": "null",
+        "108-95-2v2": "null",
         "106-97-8": -11.418, 
         "558-13-4": -9.813, 
         "7722-84-1": -10.924, 

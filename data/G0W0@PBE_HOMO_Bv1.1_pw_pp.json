@@ -1,6 +1,6 @@
 {
     "orbital": "HOMO", 
-    "remark": "HL plasmon pole", 
+    "remark": "HLPPM linearized qpe",
     "code": "BerkeleyGW", 
     "basis_size": "", 
     "parameters": {}, 
@@ -10,6 +10,8 @@
     "basis_name": "", 
     "calc_type": "G0W0@PBE", 
     "data": {
+        "593-60-2v2": "null",
+        "108-95-2v2": "null",
         "106-97-8": -11.73, 
         "558-13-4": -10.4, 
         "7722-84-1": -11.58, 

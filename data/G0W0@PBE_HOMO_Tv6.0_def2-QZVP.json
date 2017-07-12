@@ -1,6 +1,6 @@
 {
     "orbital": "HOMO", 
-    "remark": "RI with jbas", 
+    "remark": "RI jbas solved qpe FF",
     "code": "TURBOMOLE", 
     "basis_size": "4", 
     "parameters": {
@@ -12,6 +12,8 @@
     "calc_type": "G0W0@PBE", 
     "DOI": "10.1021/acs.jctc.5b00453",
     "data": {
+        "593-60-2v2": -9.49,
+        "108-95-2v2": -8.26,
         "106-97-8": -11.423, 
         "558-13-4": -9.888, 
         "7722-84-1": -10.903, 

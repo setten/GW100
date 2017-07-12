@@ -24,3 +24,7 @@ body {
 .description {
     font-style: bold;
 }
+
+table {
+    border-spacing: 10ps;
+}
