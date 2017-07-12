@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.number_cell {
+    text-align: right;
+    height: 24px;
+}
+
+.text_cell {
+    text-align: left;
+    height: 24px
+}
+
+.description {
+    font-style: bold;
+}

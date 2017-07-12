@@ -10,6 +10,7 @@
     "code_version": "6.0", 
     "basis_name": "def2-QZVP", 
     "calc_type": "G0W0@PBE", 
+    "DOI": "10.1021/acs.jctc.5b00453",
     "data": {
         "106-97-8": -11.423, 
         "558-13-4": -9.888, 

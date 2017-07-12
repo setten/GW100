@@ -6,4 +6,4 @@ basis=gaussian
 basis_name=def2-QZVP
 basis_size=4
 remark=RI with jbas
-parameters={'eta': 0.001}
+parameters={"eta": 0.001}

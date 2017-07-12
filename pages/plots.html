@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparing GW100 datasets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://unpkg.com/simple-statistics@4.1.0/dist/simple-statistics.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+
+<table>
+<tr>
+<td>
+<table>
+<tr>
+<td>
+</td>
+<td align="center">
+<div onchange="reset_tables(1); load_set(1); calc_diff();">
+  <select id="set1">
+    <option value="Experimental_HOMO_JCTC13-635-2017" selected>Experimental HOMO (JCTC 13 635 2017)</option>
+    <option value="G0W0@PBE_HOMO_Tv6.0_def2-QZVP">G0W0@PBE HOMO TMv6.0 def2-QZVP</option>
+    <option value="G0W0@PBE_HOMO_Tv6.0_def2-QZVP_noRI">G0W0@PBE HOMO TMv6.0 def2-QZVP noRI</option>
+    <option value="G0W0@PBE_HOMO_Fvx_def2-QZVP_2p">G0W0@PBE HOMO AIMS def2-QZVP 2p</option>
+    <option value="G0W0@PBE_HOMO_Fvx_def2-QZVP_pade">G0W0@PBE HOMO AIMS def2-QZVP pade</option>
+    <option value="G0W0@PBE_HOMO_Bv1.1_pw_pp">G0W0@PBE HOMO BGW v1.1 HLPP</option>
+  </select>
+</div>
+</td>
+<td align="center">
+<div onchange="reset_tables(2); load_set(2); calc_diff();">
+  <select id="set2">
+  </select>
+</div>
+</td>
+<td></td>
+</tr>
+<tr>
+  <td><table id="info_table" width="120"></table></td>
+  <td><table id="info_table1" width="120"></table></td>
+  <td><table id="info_table2" width="120"></table></td>
+  <td></td>
+</tr>
+<tr>
+  <td><table id="data_table" width="120"></table></td>
+  <td><table id="data_table1" width="120"></table></td>
+  <td><table id="data_table2" width="120"></table></td>
+  <td><table id="diff_table" width="50"></table></td>
+</tr>
+</table>
+</td>
+<td valign="top" width="600" align="left">
+<table>
+    <tr><td valign="top"><table id="stats"></table></td><td><div id="diff_box"></div></td></tr>
+</table>
+<div id="diff_hist"></div>
+</td>
+</tr>
+</table>
+
+<script>
+    fill_select_2();
+    set_key_tables();
+    load_set(1);
+    load_set(2);
+</script>
+
+</body>
+</html>
