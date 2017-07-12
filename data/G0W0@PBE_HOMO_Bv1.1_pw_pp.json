@@ -1,6 +1,6 @@
 {
     "orbital": "HOMO", 
-    "remark": "HLPPM linearized qpe",
+    "remark": "HLPPM linearized QPE",
     "code": "BerkeleyGW", 
     "basis_size": "", 
     "parameters": {}, 

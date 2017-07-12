@@ -115,13 +115,13 @@ function calc_diff(){
         yaxis: {title: "Count"},
         xaxis: {title: "Value"},
         autosize: false,
-        width: 540,
+        width: 580,
         height: 200,
         margin: {
             l: 40,
             r: 10,
             b: 35,
-            t: 0,
+            t: 20,
             pad: 0
         },
     };
@@ -136,7 +136,7 @@ function calc_diff(){
         plot_bgcolor: 'rgba(0,0,0,0)',
         bargap: 0.05,
         autosize: false,
-        width: 350,
+        width: 390,
         height: 100,
         margin: {
             l: 0,

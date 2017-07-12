@@ -1,6 +1,6 @@
 {
     "orbital": "HOMO", 
-    "remark": "RI jbas solved qpe FF",
+    "remark": "RI jbas solved QPE FF",
     "code": "TURBOMOLE", 
     "basis_size": "4", 
     "parameters": {

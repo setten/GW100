@@ -1,6 +1,6 @@
 {
     "orbital": "HOMO",
-    "remark": "FF solved qpe",
+    "remark": "FF solved QPE",
     "code": "VASP",
     "basis_size": "extrapolated",
     "parameters": {},

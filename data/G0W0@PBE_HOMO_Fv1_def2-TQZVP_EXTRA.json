@@ -1,6 +1,6 @@
 {
     "orbital": "HOMO", 
-    "remark": "pade solved qpe",
+    "remark": "pade solved QPE",
     "code": "FHI-AIMS", 
     "basis_size": "extrapolated",
     "parameters": {}, 
