@@ -68,6 +68,7 @@ function calc_diff(){
     var diff_table = document.getElementById("diff_table");
     diff_table.innerHTML = '';
     var diffs = [];
+    var adiffs = [];
     for (var i = 0, row1; row1 = table1.rows[i]; i++) {
         row2 = table2.rows[i];
         var x = row2.cells[0].innerHTML;
@@ -76,6 +77,7 @@ function calc_diff(){
             var diff = x - y;
             if (diff < 1000){
                 diffs.push(diff);
+                adiffs.push(Math.abs(diff))
             }
         } else {
             var diff = 0;
@@ -87,12 +89,13 @@ function calc_diff(){
     }
     var stats_table = document.getElementById("stats");
     stats_table.innerHTML = "";
-    keys = ['Mean difference', 'Median difference', 'RMS difference', 'Standard deviation'];
+    keys = ['Mean difference', 'Mean abs difference', 'Median difference', 'RMS difference', 'Standard deviation'];
     values = [];
-    values.push(ss.mean(diffs).toFixed(2) * 1);
-    values.push(ss.median(diffs).toFixed(2) * 1);
-    values.push(ss.rootMeanSquare(diffs).toFixed(2) * 1);
-    values.push(ss.standardDeviation(diffs).toFixed(2) * 1);
+    values.push(ss.mean(diffs).toFixed(3) * 1);
+    values.push(ss.mean(adiffs).toFixed(3) * 1);
+    values.push(ss.median(diffs).toFixed(3) * 1);
+    values.push(ss.rootMeanSquare(diffs).toFixed(3) * 1);
+    values.push(ss.standardDeviation(diffs).toFixed(3) * 1);
     for (i in keys){
         var row = stats_table.insertRow(-1);
         var cell1 = row.insertCell(0);
@@ -115,7 +118,7 @@ function calc_diff(){
         yaxis: {title: "Count"},
         xaxis: {title: "Value"},
         autosize: false,
-        width: 580,
+        width: 540,
         height: 200,
         margin: {
             l: 40,
@@ -136,12 +139,12 @@ function calc_diff(){
         plot_bgcolor: 'rgba(0,0,0,0)',
         bargap: 0.05,
         autosize: false,
-        width: 390,
-        height: 100,
+        width: 350,
+        height: 140,
         margin: {
             l: 0,
             r: 10,
-            b: 20,
+            b: 15,
             t: 20,
             pad: 0,
         },
