@@ -1,6 +1,7 @@
 {
     "orbital": "HOMO", 
-    "remark": "2 pole solved QPE",
+    "qpe": "solved",
+    "method": "AC 2 pole",
     "code": "FHI-AIMS", 
     "basis_size": "4", 
     "parameters": {}, 

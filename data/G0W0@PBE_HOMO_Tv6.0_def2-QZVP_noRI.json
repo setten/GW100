@@ -1,12 +1,13 @@
 {
     "orbital": "HOMO", 
-    "remark": "no RI solved QPE FF",
+    "qpe": "solved",
+    "method": "AFF",
     "code": "TURBOMOLE", 
     "basis_size": "4", 
     "parameters": {
         "eta": 0.001
     }, 
-    "basis": "gaussian", 
+    "basis": "gaussian no RI",
     "code_version": "6.0", 
     "basis_name": "def2-QZVP", 
     "calc_type": "G0W0@PBE", 

@@ -1,13 +1,14 @@
 {
     "orbital": "HOMO", 
-    "remark": "HLPPM linearized QPE",
+    "qpe": "linearized",
+    "method": "HLPPM",
     "code": "BerkeleyGW", 
     "basis_size": "", 
     "parameters": {}, 
     "basis": "plane waves", 
     "code_version": "1.1", 
     "DOI": "10.1021/acs.jctc.5b00453", 
-    "basis_name": "", 
+    "basis_name": "NCPP",
     "calc_type": "G0W0@PBE", 
     "data": {
         "593-60-2v2": "null",

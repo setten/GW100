@@ -1,6 +1,7 @@
 {
     "orbital": "HOMO", 
-    "remark": "CD solved QPE", 
+    "qpe": "solved",
+    "method": "CD",
     "code": "WEST", 
     "basis_size": "", 
     "parameters": {}, 

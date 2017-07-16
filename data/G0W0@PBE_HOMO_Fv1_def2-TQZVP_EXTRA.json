@@ -1,6 +1,7 @@
 {
     "orbital": "HOMO", 
-    "remark": "pade solved QPE",
+    "qpe": "solved",
+    "method": "AC Pade",
     "code": "FHI-AIMS", 
     "basis_size": "extrapolated",
     "parameters": {}, 

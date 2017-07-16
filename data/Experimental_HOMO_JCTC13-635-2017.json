@@ -1,6 +1,7 @@
 {
     "orbital": "HOMO", 
-    "remark": "", 
+    "method": "",
+    "qpe": "",
     "code": "", 
     "basis_size": "", 
     "parameters": {}, 

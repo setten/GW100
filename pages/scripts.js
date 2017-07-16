@@ -10,7 +10,9 @@ var cas = ['7440-59-7', '7440-01-9', '7440-37-1', '7439-90-9', '7440-63-3', '133
  '1304-56-9', '1309-48-4', '108-88-3', '100-41-4', '392-56-3', '108-95-2', "108-95-2v2",  '62-53-3', '110-86-1', '73-40-5', '73-24-5',
  '71-30-7', '65-71-4', '66-22-8', '57-13-6', '12187-06-3', '12190-70-4', '544-92-3'];
 
-var meta_keys = ['orbital','calc_type','basis','basis_name','basis_size','code','code_version','remark','DOI']
+var meta_keys = ['orbital','calc_type','basis','basis_name','basis_size','code','code_version','method', 'qpe','DOI']
+var selected_keys = [5, 1, 2, 3, 4, 7, 8]
+
 
 function set_key_tables(){
    $.getJSON('../data/formulas.json',function(data){
@@ -30,7 +32,6 @@ function set_key_tables(){
        cell.classList.add('description');
    }
 }
-
 
 function reset_tables(n){
    document.getElementById('info_table'+n).innerHTML = "";
@@ -77,10 +78,10 @@ function calc_diff(){
             var diff = x - y;
             if (diff < 1000){
                 diffs.push(diff);
-                adiffs.push(Math.abs(diff))
+                adiffs.push(Math.abs(diff));
+            } else {
+                var diff = 0;
             }
-        } else {
-            var diff = 0;
         }
         var row = diff_table.insertRow(-1);
         var cell = row.insertCell(0);
@@ -151,5 +152,142 @@ function calc_diff(){
     };
     var data = [box];
     Plotly.newPlot('diff_box', data, layout);
+}
 
+function make_box(){
+    var valss = [];
+    var metas = [];
+    var select = document.getElementById("reference");
+    var sets = [];
+    for (var i = 0; i < select.length; i++){
+        var option = select.options[i];
+        sets.push(option.value)
+        if (option.value == document.getElementById("reference").value){
+            var ref_id = i;
+            console.log(ref_id);
+        }
+    }
+    var done = 0;
+
+    for (var i = 0; i < sets.length; i++){
+        $.getJSON( "../data/" + sets[i] + ".json", function(data) {
+            var meta = {};
+            var vals = [];
+            for (var key in meta_keys) {
+                meta[meta_keys[key]] = data[meta_keys[key]];
+            }
+            for (var x in cas){
+                vals.push(parseFloat(data['data'][cas[x]]).toFixed(2) * 1);
+            };
+            valss.push(vals);
+            metas.push(meta);
+            done += 1;
+            update_box(metas, valss, done, sets.length, ref_id);
+        });
+    }
+}
+
+function update_box(metas, valss, done, total, ref_id){
+    var table = document.getElementById("data_block")
+    document.getElementById('data_block').innerHTML="";
+    data = []
+    if (done == total){
+        console.log('updating box');
+        for (var i = 0; i < total; i++){
+            if (metas[i]['orbital'] !== document.getElementById('orbital').value) {
+            } else if (!(metas[i]['basis_name'] === document.getElementById('basis_name').value || document.getElementById('basis_name').value === 'all')) {
+                console.log(metas[i]['basis_name']);
+                console.log(document.getElementById('basis_name').value)
+            } else if (!(metas[i]['basis_size'] === document.getElementById('basis_size').value || document.getElementById('basis_size').value === 'all')) {
+                console.log(metas[i]['basis_size']);
+                console.log(document.getElementById('basis_size').value)
+            } else if (!(metas[i]['qpe'] === document.getElementById('qpe').value || document.getElementById('qpe').value === 'all')) {
+                console.log(metas[i]['qpe']);
+                console.log(document.getElementById('basis_size').value)
+            } else {
+                var diff = [];
+                var adiff = [];
+                for (var c in cas){
+                    x = valss[i][c];
+                    y = valss[ref_id][c];
+                    var d = x - y;
+                    if (d < 1000){
+                        diff.push(d);
+                        adiff.push(Math.abs(d));
+                    } else {
+                        var d = 0;
+                    }
+                }
+                var row = table.insertRow(-1);
+                for (var x in selected_keys){
+                    var y = row.insertCell(-1);
+                    y.innerHTML = metas[i][meta_keys[selected_keys[x]]];
+                }
+                var y = row.insertCell(-1);
+                y.innerHTML = ss.mean(diff).toFixed(3) * 1;
+                var y = row.insertCell(-1);
+                y.innerHTML = ss.mean(adiff).toFixed(3) * 1;
+                var box = {
+                    x: diff,
+                    name: metas[i]['code'] + " " + metas[i]['qpe'][0] + " " + ss.mean(adiff).toFixed(3),
+                    type: 'box',
+                    boxmean: 'sd'
+                };
+                data.push(box)
+            }
+        }
+        sortTable("compare_table", 8)
+        var layout = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            gap: 0,
+            // autosize: false,
+            // width: 350,
+            // height: 140,
+            margin: {
+                l: 0,
+                r: 10,
+                b: 15,
+                t: 20,
+                pad: 0,
+             },
+        }
+        console.log(data.length)
+        Plotly.newPlot('box', data, layout);
+    } else {
+        console.log('not all date is loaded yet');
+    }
+}
+
+function sortTable(table,n) {
+  var rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById(table);
+  switching = true;
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 2; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch= true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
 }

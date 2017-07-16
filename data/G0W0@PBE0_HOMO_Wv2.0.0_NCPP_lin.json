@@ -1,6 +1,7 @@
 {
     "orbital": "HOMO", 
-    "remark": "CD linearized QPE", 
+    "qpe": "linearized",
+    "method": "CD",
     "code": "WEST", 
     "basis_size": "", 
     "parameters": {}, 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparing GW100 datasets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://unpkg.com/simple-statistics@4.1.0/dist/simple-statistics.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<table><tr><td>reference</td><td>
+<div onchange="make_box();">
+  <select id="reference">
+    <option value="Experimental_HOMO_JCTC13-635-2017" selected>Experimental HOMO (JCTC 13 635 2017)</option>
+    <option value="G0W0@PBE_HOMO_Tv6.0_def2-QZVP">G0W0@PBE HOMO TMv6.0 def2-QZVP</option>
+    <option value="G0W0@PBE_HOMO_Tv6.0_def2-QZVP_noRI">G0W0@PBE HOMO TMv6.0 def2-QZVP noRI</option>
+    <option value="G0W0@PBE_HOMO_Fvx_def2-QZVP_2p">G0W0@PBE HOMO AIMS def2-QZVP 2p</option>
+    <option value="G0W0@PBE_HOMO_Fvx_def2-QZVP_pade">G0W0@PBE HOMO AIMS def2-QZVP pade</option>
+    <option value="G0W0@PBE_HOMO_Fv1_def2-TQZVP_EXTRA">G0W0@PBE HOMO AIMS EXTRA pade</option>
+    <option value="G0W0@PBE_HOMO_Bv1.1_pw_pp">G0W0@PBE HOMO BGWv1.1 HLPP</option>
+    <option value="G0W0@PBE_HOMO_Vv5.3_PAW_lin">G0W0@PBE HOMO VASPv5.3 PAW lin</option>
+    <option value="G0W0@PBE_HOMO_Vv5.3_PAW_sol">G0W0@PBE HOMO VASPv5.3 PAW sol</option>
+    <option value="G0W0@PBE_HOMO_Wv2.0.0_NCPP_lin">G0W0@PBE HOMO WESTv2.0 lin</option>
+    <option value="G0W0@PBE_HOMO_Wv2.0.0_NCPP_sol">G0W0@PBE HOMO WESTv2.0 sol</option>
+    <option value="G0W0@PBE0_HOMO_Wv2.0.0_NCPP_lin">G0W0@PBE0 HOMO WESTv2.0 lin</option>
+    <option value="G0W0@PBE0_HOMO_Wv2.0.0_NCPP_sol">G0W0@PBE0 HOMO WESTv2.0 sol</option>
+  </select>
+</div>
+</td>
+</tr>
+<tr>
+<td>orbital</td><td>
+<div onchange="make_box();">
+  <select id="orbital">
+    <option value="HOMO" selected>HOMO</option>
+    <option value="LUMO">LUMO</option>
+  </select>
+</div>
+</td></tr>
+</table>
+
+
+
+<table id="compare_table" cellpadding="5">
+<thead>
+    <tr><td>code</td><td>calc type</td><td>basis</td><td>basis name</td><td>basis size</td><td>method</td><td>qpe</td><td>mean</td><td>mean abs</td></tr>
+    <tr>
+        <td>code</td>
+        <td>calc type</td>
+        <td>basis</td>
+        <td>
+            <div onchange="make_box();">
+                <select id="basis_name">
+                    <option value="all" selected>all</option>
+                    <option value="def2-QZVP">def2-QZVP</option>
+                    <option value="PAW">PAW</option>
+                    <option value="NCPP">NCPP</option>
+                </select>
+            </div>
+        </td>
+        <td>
+            <div onchange="make_box();">
+                <select id="basis_size">
+                    <option value="all" selected>all</option>
+                    <option value="extrapolated">extrapolated</option>
+                </select>
+            </div>
+        </td>
+        <td>method</td>
+        <td>
+            <div onchange="make_box();">
+                <select id="qpe">
+                     <option value="all" selected>all</option>
+                     <option value="solved">solved</option>
+                     <option value="linearized">linearized</option>
+                </select>
+            </div>
+        </td>
+        <td>mean</td>
+        <td>mean abs</td>
+    </tr>
+</thead>
+<tbody id="data_block">
+</tbody>
+</table>
+
+<div id="box"></div>
+
+
+
+<script>
+    make_box()
+</script>
+
+</body>
+</html>
