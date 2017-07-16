@@ -9,8 +9,9 @@
     <script src="https://unpkg.com/simple-statistics@4.1.0/dist/simple-statistics.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<center>
 
-<table><tr><td>reference</td><td>
+<table width="600"><tr><td>reference</td><td>
 <div onchange="make_box();">
   <select id="reference">
     <option value="Experimental_HOMO_JCTC13-635-2017" selected>Experimental HOMO (JCTC 13 635 2017)</option>
@@ -29,8 +30,6 @@
   </select>
 </div>
 </td>
-</tr>
-<tr>
 <td>orbital</td><td>
 <div onchange="make_box();">
   <select id="orbital">
@@ -40,16 +39,25 @@
 </div>
 </td></tr>
 </table>
-
-
-
-<table id="compare_table" cellpadding="5">
+<br>
+<br>
+<table id="compare_table" cellpadding="3" width="850">
 <thead>
     <tr><td>code</td><td>calc type</td><td>basis</td><td>basis name</td><td>basis size</td><td>method</td><td>qpe</td><td>mean</td><td>mean abs</td></tr>
     <tr>
-        <td>code</td>
-        <td>calc type</td>
-        <td>basis</td>
+        <td>
+            <div onchange="make_box();">
+         <!--       <select id="code">
+                    <option value="all" selected>all</option>
+                    <option value="FHI-AIMS">FHI-AIMS</option>
+                    <option value="TURBOMOLE">TURBOMOLE</option>
+                    <option value="VASP">VASP</option>
+                    <option value="WEST">WEST</option>
+                </select> -->
+            </div>
+        </td>
+        <td></td>
+        <td></td>
         <td>
             <div onchange="make_box();">
                 <select id="basis_name">
@@ -68,7 +76,19 @@
                 </select>
             </div>
         </td>
-        <td>method</td>
+        <td>
+            <div onchange="make_box();">
+           <!--     <select id="method">
+                    <option value="all" selected>all</option>
+                    <option value="AFF">AFF</option>
+                    <option value="SFF">SFF</option>
+                    <option value="CD">CD</option>
+                    <option value="AC 2 pole">AC 2 pole</option>
+                    <option value="AC Pade">AC Pade</option>
+                    <option value="HLPPM">HLPPM</option>
+                </select> -->
+            </div>
+        </td>
         <td>
             <div onchange="make_box();">
                 <select id="qpe">
@@ -78,8 +98,8 @@
                 </select>
             </div>
         </td>
-        <td>mean</td>
-        <td>mean abs</td>
+        <td></td>
+        <td></td>
     </tr>
 </thead>
 <tbody id="data_block">
@@ -87,7 +107,7 @@
 </table>
 
 <div id="box"></div>
-
+</center>>
 
 
 <script>

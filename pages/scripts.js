@@ -229,7 +229,8 @@ function update_box(metas, valss, done, total, ref_id){
                 y.innerHTML = ss.mean(adiff).toFixed(3) * 1;
                 var box = {
                     x: diff,
-                    name: metas[i]['code'] + " " + metas[i]['qpe'][0] + " " + ss.mean(adiff).toFixed(3),
+                    amean: ss.mean(adiff).toFixed(3),
+                    name:  metas[i]['code'] + " " + metas[i]['calc_type'] + " " + metas[i]['qpe'] + " MAD : " + ss.mean(adiff).toFixed(3),
                     type: 'box',
                     boxmean: 'sd'
                 };
@@ -242,8 +243,8 @@ function update_box(metas, valss, done, total, ref_id){
             plot_bgcolor: 'rgba(0,0,0,0)',
             gap: 0,
             // autosize: false,
-            // width: 350,
-            // height: 140,
+            width: 850,
+            height: 400,
             margin: {
                 l: 0,
                 r: 10,
@@ -253,6 +254,9 @@ function update_box(metas, valss, done, total, ref_id){
              },
         }
         console.log(data.length)
+        data.sort(function(a, b) {
+            return (a.amean > b.amean) ? -1 : (a.amean < b.amean) ? 1 : 0;
+        });
         Plotly.newPlot('box', data, layout);
     } else {
         console.log('not all date is loaded yet');
