@@ -13,6 +13,13 @@ var cas = ['7440-59-7', '7440-01-9', '7440-37-1', '7439-90-9', '7440-63-3', '133
 var meta_keys = ['orbital','calc_type','basis','basis_name','basis_size','code','code_version','method', 'qpe','DOI']
 var selected_keys = [5, 1, 2, 3, 4, 7, 8]
 
+function rn(key){
+    if (key === 'extrapolated'){
+        return ', extr.'
+    } else {
+        return ''
+    }
+}
 
 function set_key_tables(){
    $.getJSON('../data/formulas.json',function(data){
@@ -230,7 +237,7 @@ function update_box(metas, valss, done, total, ref_id){
                 var box = {
                     x: diff,
                     amean: ss.mean(adiff).toFixed(3),
-                    name:  metas[i]['code'] + " " + metas[i]['calc_type'] + " " + metas[i]['qpe'] + " MAD : " + ss.mean(adiff).toFixed(3),
+                    name:  metas[i]['code'] + " " + metas[i]['calc_type'] + " " + metas[i]['method'] + " (" + metas[i]['qpe'][0] + rn(metas[i]['basis_size']) + ") MAD : " + ss.mean(adiff).toFixed(3),
                     type: 'box',
                     boxmean: 'sd'
                 };

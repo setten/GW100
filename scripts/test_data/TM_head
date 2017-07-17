@@ -5,5 +5,7 @@ calc_type=G0W0@PBE
 basis=gaussian
 basis_name=def2-QZVP
 basis_size=4
+method=AFF
+qpe=solved
 remark=RI with jbas
 parameters={"eta": 0.001}
