@@ -195,9 +195,10 @@ function make_box(){
 }
 
 function update_box(metas, valss, done, total, ref_id){
-    var table = document.getElementById("data_block")
+    console.log(total);
+    var table = document.getElementById("data_block");
     document.getElementById('data_block').innerHTML="";
-    data = []
+    var data = []
     if (done == total){
         console.log('updating box');
         for (var i = 0; i < total; i++){
@@ -249,9 +250,15 @@ function update_box(metas, valss, done, total, ref_id){
             paper_bgcolor: 'rgba(0,0,0,0)',
             plot_bgcolor: 'rgba(0,0,0,0)',
             gap: 0,
+            legend: {
+                traceorder: 'reversed',
+            },
+            bgcolor:'#E2E2E2',
+            bordercolor:'#FFFFFF',
+            borderwidth: 2,
             // autosize: false,
             width: 850,
-            height: 400,
+            height: 500,
             margin: {
                 l: 0,
                 r: 10,
@@ -260,10 +267,12 @@ function update_box(metas, valss, done, total, ref_id){
                 pad: 0,
              },
         }
-        console.log(data.length)
         data.sort(function(a, b) {
             return (a.amean > b.amean) ? -1 : (a.amean < b.amean) ? 1 : 0;
         });
+        for (i in data) {
+            data[i]['marker'] = {'color': 'hsl('+(360 - 260*i/(data.length - 1))+', 50%, 50%)'}
+        }
         Plotly.newPlot('box', data, layout);
     } else {
         console.log('not all date is loaded yet');
