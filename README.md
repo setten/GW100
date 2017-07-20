@@ -30,3 +30,9 @@ data {cas: value, ...}
 scripts
 -------
 scripts for postprocessing
+
+the jupyter notebook can be used to convert a simle text file format of a data set into json format
+
+pages
+-----
+various html pages for data visualization
