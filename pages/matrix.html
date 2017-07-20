@@ -14,6 +14,11 @@
 <table cellpadding="10px">
     <tr>
 <td valign="top">
+    <br>
+<center><input id="select_all" type="button" value="Select All" onclick="matrix_select_all(true);" /></center>
+    <br>
+<center><input id="select_none" type="button" value="Select None" onclick="matrix_select_all(false);" /></center>
+    <br>
 <div onchange="make_matrix();">
 <form>
     <input type="checkbox" name="dataset" value="Experimental_HOMO_JCTC13-635-2017">Experimental HOMO (JCTC 13 635 2017)<br>
@@ -47,6 +52,7 @@
 </table>
 
 <script>
+    matrix_select_all(true);
     make_matrix();
 </script>
 

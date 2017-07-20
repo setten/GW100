@@ -339,6 +339,14 @@ function make_matrix(){
     }
 }
 
+function matrix_select_all(bool) {
+    var data_sets = document.getElementsByName('dataset');
+    for (set in data_sets){
+        data_sets[set].checked = bool;
+        make_matrix();
+    }
+}
+
 function update_matrix(metas, valss, done, total) {
     if (done === total) {
         console.log('updating matrix');
