@@ -18,11 +18,13 @@ data stored in json files with the fields:
 code 
 code_version
 orbital (HOMO, HOMO-1, LUMO)
-calc_type (dft@functional, g0w0@functional, ...)
+calc_type (scGW@functional, G0G0@functional, ...)
 basis (PW, Gaussian, )
-basis_name 
+basis_name (def2-QZVP, ....)
 basis_size (cardinallity or energy cutoff)
 remark
+DOI
+qpe (linearized, solved)
 parameters {name: value, ...}
 data {cas: value, ...}
 ```
@@ -31,7 +33,7 @@ scripts
 -------
 scripts for postprocessing
 
-the jupyter notebook can be used to convert a simle text file format of a data set into json format for an example see
+The jupyter notebook can be used to convert a simple text file format of a data set into json format. For an example see
 https://github.com/setten/GW100/blob/master/scripts/test_data/TM_GW_qzvp.txt
 
 pages
