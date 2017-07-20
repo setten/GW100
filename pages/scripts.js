@@ -68,7 +68,7 @@ function load_set(n){
         for (x in cas){
             var row = document.getElementById("data_table"+n).insertRow(-1);
             var cell = row.insertCell(0);
-            cell.innerHTML = parseFloat(data['data'][cas[x]]).toFixed(2) * 1;
+            cell.innerHTML = parseFloat(data['data'][cas[x]]).toFixed(2).replace('NaN', '&nbsp');
             cell.classList.add('number_cell');
         };
     calc_diff()
@@ -92,13 +92,14 @@ function calc_diff(){
             if (diff < 1000){
                 diffs.push(diff);
                 adiffs.push(Math.abs(diff));
+                difft = diff.toFixed(2)
             } else {
-                var diff = 0;
+                var difft = '&nbsp';
             }
         }
         var row = diff_table.insertRow(-1);
         var cell = row.insertCell(0);
-        cell.innerHTML = diff.toFixed(2);
+        cell.innerHTML = difft;
         cell.classList.add('number_cell');
     }
     var stats_table = document.getElementById("stats");
