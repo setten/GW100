@@ -375,11 +375,14 @@ function update_matrix(metas, valss, done, total) {
                     cell.innerHTML = value.toFixed(2);
                     cell.classList.add('number_cell');
                     cell.style.backgroundColor = 'hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 50%)';
+                    cell.style.border = '2px solid hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 100%)'
+                    //cell.style.borderColor = 'hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 100%)';
                 } else if (a < b) {
                     var value = ss.mean(adiffs);
                     cell.innerHTML = value.toFixed(2);
                     cell.classList.add('number_cell');
                     cell.style.backgroundColor = 'hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 50%)';
+                    cell.style.border = '2px solid hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 100%)'
                 } else {
                     cell.style.backgroundColor = 'black';
                 }

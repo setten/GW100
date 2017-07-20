@@ -1,11 +1,13 @@
 code=TURBOMOLE
 code_version=6.0
 orbital=HOMO
+qpe=solved
 calc_type=G0W0@PBE
 basis=gaussian
 basis_name=def2-QZVP
 basis_size=4
 remark=RI with jbas
+DOI=10.1021/acs.jctc.5b00453
 parameters={"eta": 0.001}
 7440-59-7 -23.241
 7440-01-9 -20.255
