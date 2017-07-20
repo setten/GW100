@@ -3,6 +3,7 @@ GW100 data repository and post processing tools
 
 more information on the project at https://gw100.wordpress.com/
 
+The most efficient way to contribute data is to fork this project. The next step is to clone you fork to you local machine. In you local version you can add your data and use the visuallization tools. Once you are ready to share your resuls commit your json data files push them to your repository and send a pull request. If this sound like a lot of hocus pocus just contact the author.
 
 structures
 ----------
@@ -31,7 +32,8 @@ scripts
 -------
 scripts for postprocessing
 
-the jupyter notebook can be used to convert a simle text file format of a data set into json format
+the jupyter notebook can be used to convert a simle text file format of a data set into json format for an example see
+https://github.com/setten/GW100/blob/master/scripts/test_data/TM_GW_qzvp.txt
 
 pages
 -----
