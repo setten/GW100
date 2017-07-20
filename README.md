@@ -3,12 +3,11 @@ GW100 data repository and post processing tools
 
 more information on the project at https://gw100.wordpress.com/
 
-The most efficient way to contribute data is to fork this project. The next step is to clone you fork to you local machine. In you local version you can add your data and use the visuallization tools. Once you are ready to share your resuls commit your json data files push them to your repository and send a pull request. If this sound like a lot of hocus pocus just contact the author.
+The most efficient way to contribute data is to fork this project. The next step is to clone you fork to your local machine. In your local version you can add your data and use the visuallization tools. Once you are ready to share your resuls, commit your json data files, push them to your repository and send a pull request. However, if this sound like a lot of hocus pocus just contact the author.
 
 structures
 ----------
 directory containig the structures in xyz format
-
 
 data
 ----
