@@ -177,7 +177,6 @@ function make_box(){
         sets.push(option.value)
         if (option.value == document.getElementById("reference").value){
             var ref_id = i;
-            console.log(ref_id);
         }
     }
     var done = 0;
@@ -377,9 +376,6 @@ function update_matrix(metas, valss, done, total) {
                     cell.style.backgroundColor = 'hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 50%)';
                 } else if (a < b) {
                     var value = ss.mean(adiffs);
-                    if (value < 0) {
-                        console.log(value);
-                    }
                     cell.innerHTML = value.toFixed(2);
                     cell.classList.add('number_cell');
                     cell.style.backgroundColor = 'hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 50%)';
