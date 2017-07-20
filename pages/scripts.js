@@ -366,7 +366,7 @@ function update_matrix(metas, valss, done, total) {
                     var value = ss.mean(diffs);
                     cell.innerHTML = value.toFixed(2);
                     cell.classList.add('number_cell');
-                    cell.style.backgroundColor = 'hsl(' + (120 * (1 - value/1.20)) + ', 93%, 50%)';
+                    cell.style.backgroundColor = 'hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 50%)';
                 } else if (a < b) {
                     var value = ss.mean(adiffs);
                     if (value < 0) {
@@ -374,7 +374,7 @@ function update_matrix(metas, valss, done, total) {
                     }
                     cell.innerHTML = value.toFixed(2);
                     cell.classList.add('number_cell');
-                    cell.style.backgroundColor = 'hsl(' + (120 * (1 - value/1.20)) + ', 93%, 50%)';
+                    cell.style.backgroundColor = 'hsla(' + (120 * (1 - value/1.20)) + ', 93%, 50%, 50%)';
                 } else {
                     cell.style.backgroundColor = 'black';
                 }
