@@ -24,6 +24,10 @@ body {
     height: 24px;
 }
 
+.center {
+    text-align: center;
+}
+
 .description {
     font-style: bold;
 }

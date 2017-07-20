@@ -21,6 +21,12 @@ function rn(key){
     }
 }
 
+function rpush(v, list){
+    if (!(isNaN(v))){
+        list.push(v);
+    }
+}
+
 function set_key_tables(){
    $.getJSON('../data/formulas.json',function(data){
        for (x in cas){
@@ -300,4 +306,82 @@ function sortTable(table,n) {
       switching = true;
     }
   }
+}
+
+
+function make_matrix(){
+    var data_sets = document.getElementsByName('dataset');
+    var data_set_names = []
+    for (var i = 0; i < data_sets.length; i++){
+        if (data_sets[i].checked) {
+            data_set_names.push(data_sets[i].value)
+        }
+    }
+    var valss = [];
+    var metas = [];
+    var done = 0;
+
+    for (var j = 0; j < data_set_names.length; j++){
+        $.getJSON( "../data/" + data_set_names[j] + ".json", function(data) {
+            var meta = {};
+            var vals = [];
+            for (var key in meta_keys) {
+                meta[meta_keys[key]] = data[meta_keys[key]];
+            }
+            for (var x in cas){
+                vals.push(parseFloat(data['data'][cas[x]]).toFixed(2) * 1);
+            };
+            valss.push(vals);
+            metas.push(meta);
+            done += 1;
+            update_matrix(metas, valss, done, data_set_names.length);
+        });
+    }
+}
+
+function update_matrix(metas, valss, done, total) {
+    if (done === total) {
+        console.log('updating matrix');
+        var table = document.getElementById('matrix');
+        table.innerHTML = "";
+        var head_row = table.insertRow(-1);
+        head_row.insertCell(-1);
+        for (var a = 0; a < valss.length; a++) {
+            head_cell = head_row.insertCell(-1);
+            head_cell.innerHTML = a + 1;
+            head_cell.classList.add('center')
+            var row = table.insertRow(-1);
+            cell = row.insertCell(-1);
+            cell.innerHTML = (a + 1) + ': ' + metas[a]['code'] + " " + metas[a]['calc_type'] + " " + metas[a]['method'] + " (" + metas[a]['qpe'][0] + rn(metas[a]['basis_size']) + ")";
+            for (var b = 0; b < valss.length; b++) {
+                var diffs = [];
+                var adiffs = [];
+                for (var ii in valss[a]){
+                    d = valss[a][ii] - valss[b][ii];
+                    rpush(d, diffs);
+                    rpush(Math.abs(d), adiffs);
+                }
+                var cell = row.insertCell(-1);
+                if (a > b) {
+                    var value = ss.mean(diffs);
+                    cell.innerHTML = value.toFixed(2);
+                    cell.classList.add('number_cell');
+                    cell.style.backgroundColor = 'hsl(' + (120 * (1 - value/1.20)) + ', 93%, 50%)';
+                } else if (a < b) {
+                    var value = ss.mean(adiffs);
+                    if (value < 0) {
+                        console.log(value);
+                    }
+                    cell.innerHTML = value.toFixed(2);
+                    cell.classList.add('number_cell');
+                    cell.style.backgroundColor = 'hsl(' + (120 * (1 - value/1.20)) + ', 93%, 50%)';
+                } else {
+                    cell.style.backgroundColor = 'black';
+                }
+            }
+        }
+    } else {
+        console.log('not all read yet')
+    }
+
 }

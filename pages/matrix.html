@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparing GW100 datasets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://unpkg.com/simple-statistics@4.1.0/dist/simple-statistics.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<table cellpadding="10px">
+    <tr>
+<td valign="top">
+<div onchange="make_matrix();">
+<form>
+    <input type="checkbox" name="dataset" value="Experimental_HOMO_JCTC13-635-2017">Experimental HOMO (JCTC 13 635 2017)<br>
+    <input type="checkbox" name="dataset" value="CCSD(T)_HOMO_Cv_def2-TZVPP">CCSD(T) HOMO CFOUR<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Tv6.0_def2-QZVP">G0W0@PBE HOMO TMv6.0 def2-QZVP<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Tv6.0_def2-QZVP_noRI">G0W0@PBE HOMO TMv6.0 def2-QZVP noRI<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Fvx_def2-QZVP_2p">G0W0@PBE HOMO AIMS def2-QZVP 2p<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Fvx_def2-QZVP_pade">G0W0@PBE HOMO AIMS def2-QZVP pade<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Fvx_def2-TZVPP">G0W0@PBE HOMO AIMS def2-TZVPP<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Fv1_def2-TQZVP_EXTRA">G0W0@PBE HOMO AIMS EXTRA pade<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Bv1.1_pw_pp">G0W0@PBE HOMO BGWv1.1 HLPP<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Bv1.1_NCPP_FF">G0W0@PBE HOMO BGWv1.1 FF<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Vv5.3_PAW_lin">G0W0@PBE HOMO VASPv5.3 PAW lin<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Vv5.3_PAW_sol">G0W0@PBE HOMO VASPv5.3 PAW sol<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Wv2.0.0_NCPP_lin">G0W0@PBE HOMO WESTv2.0 lin<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE_HOMO_Wv2.0.0_NCPP_sol">G0W0@PBE HOMO WESTv2.0 sol<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE0_HOMO_Wv2.0.0_NCPP_lin">G0W0@PBE0 HOMO WESTv2.0 lin<br>
+    <input type="checkbox" name="dataset" value="G0W0@PBE0_HOMO_Wv2.0.0_NCPP_sol">G0W0@PBE0 HOMO WESTv2.0 sol<br>
+    <input type="checkbox" name="dataset" value="G0W0@HF_HOMO_Fvx_def2-TZVPP">G0W0@HF HOMO AIMS def2-TZVPP<br>
+    <input type="checkbox" name="dataset" value="scGW0@PBE_HOMO_Fvx_def2-TZVPP">scGW0@PBE HOMO AIMS def2-TZVPP sol<br>
+    <input type="checkbox" name="dataset" value="scGW0@HF_HOMO_Fvx_def2-TZVPP">scGW0@HF HOMO AIMS def2-TZVPP sol<br>
+    <input type="checkbox" name="dataset" value="qsGW_HOMO_Tv6.0_def2-TZVPP">qsGW HOMO TMv6.0 sol<br>
+    <input type="checkbox" name="dataset" value="scGW_HOMO_Fvx_def2-TZVPP">scGW HOMO AIMS sol<br>
+
+</form>
+</div>
+</td><td valign="top">
+    <table id="matrix"></table>
+</td>
+</tr>
+</table>
+
+<script>
+    make_matrix();
+</script>
+
+</body>
+</html>
