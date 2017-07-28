@@ -1,7 +1,7 @@
 {
     "orbital": "HOMO", 
     "remark": "N4 implementation", 
-    "code": "CP2l", 
+    "code": "CP2K",
     "basis_size": "4", 
     "parameters": {}, 
     "basis": "GAPW", 
