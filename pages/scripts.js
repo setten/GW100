@@ -28,7 +28,7 @@ function rpush(v, list){
 }
 
 function set_key_tables(){
-   $.getJSON('../data/formulas.json',function(data){
+   $.getJSON('https://raw.githubusercontent.com/setten/GW100/master/data/formulas.json', function(data){
        for (x in cas){
            var row = document.getElementById('data_table').insertRow(-1);
            var cell = row.insertCell(0);
@@ -57,7 +57,8 @@ function fill_select_2(){
 }
 
 function load_set(n){
-    $.getJSON( "../data/" + document.getElementById('set'+n).value + ".json", function( data ) {
+    $.getJSON( "https://raw.githubusercontent.com/setten/GW100/master/data/" 
+               + document.getElementById('set'+n).value + ".json", function( data ) {
         var items = [];
         for (key in meta_keys) {
             var row = document.getElementById("info_table"+n).insertRow(-1);
@@ -183,7 +184,7 @@ function make_box(){
     var done = 0;
 
     for (var i = 0; i < sets.length; i++){
-        $.getJSON( "../data/" + sets[i] + ".json", function(data) {
+        $.getJSON( "https://raw.githubusercontent.com/setten/GW100/master/data/" + sets[i] + ".json", function(data) {
             var meta = {};
             var vals = [];
             for (var key in meta_keys) {
@@ -322,7 +323,7 @@ function make_matrix(){
     var done = 0;
 
     for (var j = 0; j < data_set_names.length; j++){
-        $.getJSON( "../data/" + data_set_names[j] + ".json", function(data) {
+        $.getJSON( "https://raw.githubusercontent.com/setten/GW100/master/data/" + data_set_names[j] + ".json", function(data) {
             var meta = {};
             var vals = [];
             for (var key in meta_keys) {
