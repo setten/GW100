@@ -41,5 +41,7 @@ pages
 various html pages for data visualization:
 
 http://htmlpreview.github.io/?https://github.com/setten/GW100/blob/master/pages/pairwise.html
+
 http://htmlpreview.github.io/?https://github.com/setten/GW100/blob/master/pages/compare_all.html
+
 http://htmlpreview.github.io/?https://github.com/setten/GW100/blob/master/pages/matrix.html
