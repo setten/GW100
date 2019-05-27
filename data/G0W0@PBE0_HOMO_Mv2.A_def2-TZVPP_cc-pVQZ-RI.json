@@ -108,6 +108,7 @@
     "code_version": "2.A",
     "basis_name": "def2-TZVPP",
     "calc_type": "G0W0@PBE0",
+    "DOI": "unpublished",
     "remark": "RI with cc-pVQZ-RI and when missing replaced by the closest available element Rb (<-Xe), Ti (<-Ar), Cu (<-Ga), K (<-Ar)",
     "basis": "gaussian",
     "orbital": "HOMO",
