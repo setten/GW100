@@ -4,6 +4,7 @@
     "method": "AFF",
     "basis": "gaussian",
     "orbital": "HOMO",
+    "DOI": "unpublished",
     "parameters": {
         "eta": 0.001
     },
