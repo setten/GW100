@@ -4,6 +4,7 @@
     "remark": "RI with x2c-coulomb-fitting",
     "method": "AFF",
     "basis": "gaussian",
+    "DOI": "unpublished",
     "code": "MOLGW",
     "basis_size": "4",
     "calc_type": "G0W0@PBE0",
