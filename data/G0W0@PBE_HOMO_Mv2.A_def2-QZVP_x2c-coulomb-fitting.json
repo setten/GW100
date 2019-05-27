@@ -5,6 +5,7 @@
     },
     "remark": "RI with x2c-coulomb-fitting",
     "method": "AFF",
+    "DOI": "unpublished",
     "basis_name": "def2-QZVP",
     "data": {
         "7782-50-5": -10.9167,
