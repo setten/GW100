@@ -6,6 +6,7 @@
     },
     "calc_type": "G0W0@PBE",
     "qpe": "solved",
+    "DOI": "unpublished",
     "remark": "RI with cc-pVQZ-RI and when missing replaced by the closest available element Rb (<-Xe), Ti (<-Ar), Cu (<-Ga), K (<-Ar)",
     "data": {
         "7782-65-2": -11.9288,
